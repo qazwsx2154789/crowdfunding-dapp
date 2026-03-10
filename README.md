@@ -78,7 +78,6 @@ export async function getEthUsdPrice(): Promise<number>
 | **Pull Payment 退款** | `pendingRefunds` mapping，由用戶主動提領，避免 DoS |
 | **身份驗證** | `onlyCreator`、`onlyBacker` modifier |
 | **BPS 總和驗證** | constructor 要求里程碑比例加總必須等於 10000 |
-| **私鑰保護** | `.env` 列入 `.gitignore`，不上傳版本控制 |
 | **Chainlink 去中心化報價** | 避免使用可被操控的中心化價格來源 |
 
 ---
