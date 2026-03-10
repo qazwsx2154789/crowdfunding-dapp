@@ -2,7 +2,7 @@
 
 > 碩一寒假作業｜區塊鏈智慧合約 DApp
 
-**Live Demo：** https://crowdfunding-dapp-ln2s9v38s-qazwsx2154789s-projects.vercel.app
+**Live Demo：** https://crowdfunding-dapp-nine.vercel.app
 
 ---
 
