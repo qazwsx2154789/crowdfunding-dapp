@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-dark-900 text-slate-100 font-sans;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-brand hover:bg-brand-light active:bg-brand-dark text-white font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply bg-dark-500 hover:bg-dark-600 border border-dark-500 hover:border-brand text-slate-200 font-semibold px-5 py-2.5 rounded-xl transition-all duration-200;
+  }
+
+  .btn-outline {
+    @apply border border-brand text-brand hover:bg-brand hover:text-white font-semibold px-5 py-2.5 rounded-xl transition-all duration-200;
+  }
+
+  .card {
+    @apply bg-dark-700 border border-dark-500 rounded-2xl p-6;
+  }
+
+  .card-hover {
+    @apply card hover:border-brand/50 hover:shadow-lg hover:shadow-brand/10 transition-all duration-300 cursor-pointer;
+  }
+
+  .input {
+    @apply bg-dark-600 border border-dark-500 focus:border-brand text-slate-100 placeholder-slate-500 rounded-xl px-4 py-3 w-full outline-none transition-colors duration-200;
+  }
+
+  .label {
+    @apply text-slate-300 font-medium text-sm mb-1.5 block;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold;
+  }
+
+  .badge-active   { @apply badge bg-green-500/20 text-green-400 border border-green-500/30; }
+  .badge-success  { @apply badge bg-blue-500/20 text-blue-400 border border-blue-500/30; }
+  .badge-completed{ @apply badge bg-purple-500/20 text-purple-400 border border-purple-500/30; }
+  .badge-failed   { @apply badge bg-red-500/20 text-red-400 border border-red-500/30; }
+
+  .progress-bar {
+    @apply h-2 rounded-full bg-dark-500 overflow-hidden;
+  }
+
+  .progress-fill {
+    @apply h-full rounded-full transition-all duration-500;
+  }
+
+  .tier-gold   { @apply text-gold; }
+  .tier-silver { @apply text-silver; }
+  .tier-bronze { @apply text-bronze; }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0f0f1e; }
+::-webkit-scrollbar-thumb { background: #2a2a45; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #7c3aed; }
