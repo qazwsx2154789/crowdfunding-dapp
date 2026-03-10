@@ -1,7 +1,5 @@
 # CrowdChain — 去中心化眾籌平台
 
-> 碩一寒假作業｜區塊鏈智慧合約 DApp
-
 **Live Demo：** https://crowdfunding-dapp-nine.vercel.app
 
 ---
