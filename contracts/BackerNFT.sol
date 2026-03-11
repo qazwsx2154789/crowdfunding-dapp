@@ -7,20 +7,20 @@ import "@openzeppelin/contracts/utils/Base64.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
 
 /*
- * BackerNFT is the ERC-721 reward token for CrowdChain campaign backers.
- * It is deployed once by CrowdfundingFactory and shared across all campaigns.
- *
- * Key responsibilities:
- * - Mint NFTs to backers when a campaign is finalized (success or failure)
- * - Assign rank-based tiers: Gold (#1 contributor), Silver (#2), Bronze (all others)
- * - Special case: if only one backer exists, they receive both Gold and Silver
- * - Store on-chain metadata including tier, campaign address, and ETH contribution amount
- * - Generate fully on-chain SVG artwork for each NFT (no external image hosting required)
- * - Restrict minting to authorized Campaign contracts only
- *
- * This contract consists of 1 core contract:
- * 1. BackerNFT: ERC-721 token with on-chain SVG metadata and tier-based minting logic
- */
+BackerNFT is the ERC-721 reward token for CrowdChain campaign backers.
+It is deployed once by CrowdfundingFactory and shared across all campaigns.
+
+Key responsibilities:
+- Mint NFTs to backers when a campaign is finalized (success or failure)
+- Assign rank-based tiers: Gold (#1 contributor), Silver (#2), Bronze (all others)
+- Special case: if only one backer exists, they receive both Gold and Silver
+- Store on-chain metadata including tier, campaign address, and ETH contribution amount
+- Generate fully on-chain SVG artwork for each NFT (no external image hosting required)
+- Restrict minting to authorized Campaign contracts only
+
+This contract consists of 1 core contract:
+1. BackerNFT: ERC-721 token with on-chain SVG metadata and tier-based minting logic
+*/
 
 /// @title BackerNFT - ERC-721 reward NFT for campaign backers
 /// @notice Supports Bronze/Silver/Gold tiers; minted by authorized Campaign contracts

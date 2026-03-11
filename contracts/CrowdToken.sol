@@ -5,18 +5,18 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 /*
- * CrowdToken (CROWD) is the ERC-20 platform reward token of CrowdChain.
- * It is deployed once by CrowdfundingFactory and shared across all campaigns.
- *
- * Key responsibilities:
- * - Mint CROWD tokens to backers immediately when they contribute ETH to a campaign
- * - Exchange rate: 1 ETH = 1000 CROWD (TOKENS_PER_ETH constant)
- * - Restrict minting to authorized Campaign contracts only
- * - Tokens are freely transferable as a standard ERC-20 token
- *
- * This contract consists of 1 core contract:
- * 1. CrowdToken: ERC-20 token with campaign-controlled minting for backer rewards
- */
+CrowdToken (CROWD) is the ERC-20 platform reward token of CrowdChain.
+It is deployed once by CrowdfundingFactory and shared across all campaigns.
+
+Key responsibilities:
+- Mint CROWD tokens to backers immediately when they contribute ETH to a campaign
+- Exchange rate: 1 ETH = 1000 CROWD (TOKENS_PER_ETH constant)
+- Restrict minting to authorized Campaign contracts only
+- Tokens are freely transferable as a standard ERC-20 token
+
+This contract consists of 1 core contract:
+1. CrowdToken: ERC-20 token with campaign-controlled minting for backer rewards
+*/
 
 /// @title CrowdToken - ERC-20 platform reward token
 /// @notice Minted proportionally to ETH contributions (1 ETH = 1000 CROWD)
