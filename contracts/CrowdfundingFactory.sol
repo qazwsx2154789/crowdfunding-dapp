@@ -7,6 +7,21 @@ import "./Campaign.sol";
 import "./BackerNFT.sol";
 import "./CrowdToken.sol";
 
+/*
+ * CrowdfundingFactory is the entry point of the CrowdChain platform.
+ * It is responsible for deploying new Campaign contracts and managing shared platform resources.
+ *
+ * Key responsibilities:
+ * - Deploy a new Campaign contract for each fundraising activity via createCampaign()
+ * - Maintain a registry of all deployed Campaign contracts
+ * - Hold references to the shared BackerNFT and CrowdToken contracts
+ * - Authorize each new Campaign to mint NFTs and CROWD tokens
+ * - Collect and withdraw platform fees (2.5% of each approved milestone payout)
+ *
+ * This contract consists of 1 core contract:
+ * 1. CrowdfundingFactory: Platform entry point, campaign deployer, and fee collector
+ */
+
 /// @title CrowdfundingFactory - Platform entry point and campaign deployer
 contract CrowdfundingFactory is Ownable, ReentrancyGuard {
 

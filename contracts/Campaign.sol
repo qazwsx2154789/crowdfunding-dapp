@@ -5,6 +5,32 @@ import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 import "./BackerNFT.sol";
 import "./CrowdToken.sol";
 
+/*
+ * Campaign is the core contract of each individual fundraising activity on CrowdChain.
+ * Each campaign is deployed by CrowdfundingFactory and operates independently.
+ *
+ * Key responsibilities:
+ * - Accept ETH contributions from backers during the fundraising period
+ * - Mint CROWD tokens to backers immediately upon contribution (1 ETH = 1000 CROWD)
+ * - Finalize the campaign after the deadline:
+ *     - If goal is met: transition to SUCCESSFUL and begin milestone flow
+ *     - If goal is not met: transition to FAILED and queue full refunds
+ * - Manage milestone-based fund release through a voting mechanism:
+ *     - Creator requests payout per milestone
+ *     - Backers vote with ETH-weighted votes (10% quorum required)
+ *     - Approved: funds released to creator (minus 2.5% platform fee)
+ *     - Rejected: remaining funds refunded to all backers, campaign ends
+ * - Mint rank-based NFTs to all backers at finalization (regardless of outcome):
+ *     - #1 contributor → Gold NFT
+ *     - #2 contributor → Silver NFT
+ *     - All others    → Bronze NFT
+ *     - Only 1 backer → receives both Gold and Silver
+ * - Support pull-pattern refunds via claimRefund() to prevent DoS attacks
+ *
+ * This contract consists of 1 core contract:
+ * 1. Campaign: The fundraising activity contract managing contributions, milestones, voting, and refunds
+ */
+
 /// @title Campaign - Core crowdfunding logic per campaign instance
 contract Campaign is ReentrancyGuard {
 
