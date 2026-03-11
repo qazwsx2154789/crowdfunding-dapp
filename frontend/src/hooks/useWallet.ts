@@ -11,6 +11,7 @@ export interface WalletState {
   isWrongNetwork: boolean;
   connect: () => Promise<void>;
   disconnect: () => void;
+  switchToSepolia: () => Promise<void>;
 }
 
 export function useWallet(): WalletState {
@@ -90,5 +91,29 @@ export function useWallet(): WalletState {
     };
   }, [disconnect]);
 
-  return { address, provider, signer, chainId, isConnecting, isWrongNetwork, connect, disconnect };
+  const switchToSepolia = useCallback(async () => {
+    if (!window.ethereum) return;
+    try {
+      await window.ethereum.request({
+        method: "wallet_switchEthereumChain",
+        params: [{ chainId: "0xaa36a7" }], // Sepolia
+      });
+    } catch (e: any) {
+      // Chain not added yet, add it
+      if (e?.code === 4902) {
+        await window.ethereum.request({
+          method: "wallet_addEthereumChain",
+          params: [{
+            chainId: "0xaa36a7",
+            chainName: "Sepolia",
+            nativeCurrency: { name: "SepoliaETH", symbol: "ETH", decimals: 18 },
+            rpcUrls: ["https://ethereum-sepolia-rpc.publicnode.com"],
+            blockExplorerUrls: ["https://sepolia.etherscan.io"],
+          }],
+        });
+      }
+    }
+  }, []);
+
+  return { address, provider, signer, chainId, isConnecting, isWrongNetwork, connect, disconnect, switchToSepolia };
 }

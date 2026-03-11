@@ -48,9 +48,12 @@ export default function Navbar() {
           {/* Wallet */}
           <div className="flex items-center gap-3">
             {wallet.isWrongNetwork && (
-              <span className="text-xs text-red-400 font-medium hidden sm:block">
+              <button
+                onClick={wallet.switchToSepolia}
+                className="text-xs text-red-400 font-medium hidden sm:block hover:text-red-300 border border-red-400/30 rounded-lg px-3 py-1.5 hover:bg-red-400/10 transition-colors"
+              >
                 ⚠ 請切換到 Sepolia
-              </span>
+              </button>
             )}
             {wallet.address ? (
               <div className="flex items-center gap-2">
