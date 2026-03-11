@@ -253,15 +253,6 @@ npx hardhat run scripts/deploy.ts --network sepolia
 
 部署完成後將輸出的合約地址填入 `frontend/.env`。
 
-### 啟動前端
-
-```bash
-cd frontend
-npm run dev
-```
-
-瀏覽器開啟 http://localhost:5173
-
 ---
 
 ## 部署
